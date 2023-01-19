@@ -1,0 +1,10 @@
+import impl_libs = gtest%lib{gtest}
+import impl_libs += libftxui%lib{screen}
+import impl_libs += libftxui%lib{dom}
+import impl_libs += libftxui%lib{component}
+
+lib{ftxui-tests}: {hxx cxx}{*_test}
+lib{ftxui-tests}: $impl_libs
+
+# Don't install private headers.
+{hxx ixx}{*}: install = false

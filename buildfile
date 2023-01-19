@@ -1,3 +1,3 @@
-import pkgs = libftxui/
+import pkgs = libftxui/ libftxui-tests/
 
 ./: $pkgs
