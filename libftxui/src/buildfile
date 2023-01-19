@@ -1,0 +1,90 @@
+
+# Public headers.
+pub = [dir_path] ../include/
+
+include $pub
+
+pub_hdrs = $($pub/ pub_hdrs)
+
+lib{screen}: $pub/{$pub_hdrs}
+lib{screen}: ftxui/screen/{hxx cxx}{* -*_test}
+
+dom_libs = lib{screen}
+lib{dom}: $pub/{$pub_hdrs}
+lib{dom}: ftxui/dom/{hxx cxx}{* -*_test}
+lib{dom}: $dom_libs
+
+component_libs = lib{dom}
+lib{component}: $pub/{$pub_hdrs}
+lib{component}: ftxui/dom/{hxx cxx}{* -*_test}
+lib{component}: $component_libs
+
+platform_libs = # Platform specific libraries.
+platform_poptions = # Platform specific poptions.
+platform_coptions = # Platform specific coptions.
+switch $cxx.target.class
+{
+    case 'windows'
+    {
+        src_inc_dirs += windows/
+        if ($cxx.target.system != 'mingw32')
+        {
+            platform_coptions += /W3 /WX /wd4244 /wd4267
+            platform_poptions += /D_CRT_SECURE_NO_WARNINGS
+        }
+    }
+    default
+    {
+        platform_coptions += -Wall -Wextra -pedantic -Werror -Wmissing-declarations -Wdeprecated -Wshadow
+		platform_poptions += -pthread
+    }
+}
+
+# Build options.
+out_pfx_inc = [dir_path] $out_root/include/
+src_pfx_inc = [dir_path] $src_root/include/
+out_pfx_src = [dir_path] $out_root/src/
+src_pfx_src = [dir_path] $src_root/src/
+
+cxx.coptions += $platform_coptions
+cxx.poptions += "-I$out_pfx_src" "-I$src_pfx_src" \
+                "-I$out_pfx_inc" "-I$src_pfx_inc" \
+                $platform_poptions
+cxx.libs += $platform_libs
+
+# Export options.
+lib{screen}:
+{
+  cxx.export.poptions = "-I$out_pfx_inc" "-I$src_pfx_inc"
+}
+
+lib{dom}:
+{
+  cxx.export.poptions = "-I$out_pfx_inc" "-I$src_pfx_inc"
+  cxx.export.libs = $dom_libs
+}
+
+lib{component}:
+{
+  cxx.export.poptions = "-I$out_pfx_inc" "-I$src_pfx_inc"
+  cxx.export.libs = $component_libs
+}
+
+# For pre-releases use the complete version to make sure they cannot be used
+# in place of another pre-release or the final version. See the version module
+# for details on the version.* variable values.
+if $version.pre_release
+{
+  lib{screen}: bin.lib.version = "-$version.project_id"
+  lib{dom}: bin.lib.version = "-$version.project_id"
+  lib{component}: bin.lib.version = "-$version.project_id"
+}
+else
+{
+  lib{screen}: bin.lib.version = "-$version.major.$version.minor"
+  lib{dom}: bin.lib.version = "-$version.major.$version.minor"
+  lib{component}: bin.lib.version = "-$version.major.$version.minor"
+}
+
+# Don't install private headers.
+{hxx ixx}{*}: install = false
