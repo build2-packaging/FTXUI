@@ -19,6 +19,8 @@ lib{component}: $pub/{$pub_hdrs}
 lib{component}: ftxui/dom/{hxx cxx}{* -*_test}
 lib{component}: $component_libs
 
+./: lib{screen} lib{dom} lib{component}
+
 platform_libs = # Platform specific libraries.
 platform_poptions = # Platform specific poptions.
 platform_coptions = # Platform specific coptions.
