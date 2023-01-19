@@ -1,5 +1,5 @@
 : 1
-name: libftxui-test
+name: libftxui-tests
 version: 3.0.0-a.0.z
 project: FTXUI
 summary: Tests for the ftxui library.
