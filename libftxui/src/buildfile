@@ -29,7 +29,7 @@ switch $cxx.target.class
         src_inc_dirs += windows/
         if ($cxx.target.system != 'mingw32')
         {
-            platform_poptions += /D_CRT_SECURE_NO_WARNINGS
+            platform_poptions += -D_CRT_SECURE_NO_WARNINGS
         }
     }
     default
