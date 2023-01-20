@@ -2,3 +2,5 @@
 location: libftxui/
 :
 location: libftxui-tests/
+:
+location: libftxui-examples/

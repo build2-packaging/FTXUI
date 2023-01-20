@@ -1,0 +1,1 @@
+../../../upstream/examples/component/gallery.cpp

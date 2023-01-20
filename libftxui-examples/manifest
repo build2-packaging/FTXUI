@@ -1,8 +1,8 @@
 : 1
-name: libftxui
+name: libftxui-examples
 version: 3.0.0-a.0.z
 project: FTXUI
-summary: Functional Terminal (X) User interface - A simple C++ library for terminal based user interfaces!
+summary: Examples for the FTXUI library.
 license: MIT
 description-file: README.md
 topics: C++
@@ -15,6 +15,3 @@ builds: default
 
 depends: * build2 >= 0.15.0
 depends: * bpkg >= 0.15.0
-
-tests: libftxui-tests == $
-examples: libftxui-examples == $

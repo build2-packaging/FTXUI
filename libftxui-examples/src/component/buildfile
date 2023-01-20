@@ -1,0 +1,10 @@
+import impl_libs = libftxui%lib{component}
+
+example_files = cxx{*}
+
+for example : $example_files
+{
+    exe{$name($example)}: $example
+    exe{$name($example)}: $impl_libs
+    ./: exe{$name($example)}
+}

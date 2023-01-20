@@ -16,7 +16,7 @@ lib{dom}: $dom_libs
 
 component_libs = lib{dom}
 lib{component}: $pub/{$pub_hdrs}
-lib{component}: ftxui/dom/{hxx cxx}{* -*_test}
+lib{component}: ftxui/component/{hxx cxx}{* -*_test}
 lib{component}: $component_libs
 
 ./: lib{screen} lib{dom} lib{component}

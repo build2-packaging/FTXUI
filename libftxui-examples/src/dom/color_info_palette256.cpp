@@ -1,0 +1,1 @@
+../../../upstream/examples/dom/color_info_palette256.cpp
