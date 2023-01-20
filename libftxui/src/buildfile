@@ -21,9 +21,7 @@ lib{component}: $component_libs
 
 ./: lib{screen} lib{dom} lib{component}
 
-platform_libs = # Platform specific libraries.
 platform_poptions = # Platform specific poptions.
-platform_coptions = # Platform specific coptions.
 switch $cxx.target.class
 {
     case 'windows'
@@ -31,13 +29,11 @@ switch $cxx.target.class
         src_inc_dirs += windows/
         if ($cxx.target.system != 'mingw32')
         {
-            platform_coptions += /W3 /WX /wd4244 /wd4267
             platform_poptions += /D_CRT_SECURE_NO_WARNINGS
         }
     }
     default
     {
-        platform_coptions += -Wall -Wextra -pedantic -Werror -Wmissing-declarations -Wdeprecated -Wshadow
 		platform_poptions += -pthread
     }
 }
@@ -48,11 +44,9 @@ src_pfx_inc = [dir_path] $src_root/include/
 out_pfx_src = [dir_path] $out_root/src/
 src_pfx_src = [dir_path] $src_root/src/
 
-cxx.coptions += $platform_coptions
 cxx.poptions += "-I$out_pfx_src" "-I$src_pfx_src" \
                 "-I$out_pfx_inc" "-I$src_pfx_inc" \
                 $platform_poptions
-cxx.libs += $platform_libs
 
 # Export options.
 lib{screen}:
