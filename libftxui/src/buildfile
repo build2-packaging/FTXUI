@@ -7,16 +7,16 @@ include $pub
 pub_hdrs = $($pub/ pub_hdrs)
 
 lib{screen}: $pub/{$pub_hdrs}
-lib{screen}: ftxui/screen/{hxx cxx}{* -*_test}
+lib{screen}: ftxui/screen/{hxx cxx}{* -*_test -*_fuzzer}
 
 dom_libs = lib{screen}
 lib{dom}: $pub/{$pub_hdrs}
-lib{dom}: ftxui/dom/{hxx cxx}{* -*_test}
+lib{dom}: ftxui/dom/{hxx cxx}{* -*_test -*_fuzzer}
 lib{dom}: $dom_libs
 
 component_libs = lib{dom}
 lib{component}: $pub/{$pub_hdrs}
-lib{component}: ftxui/component/{hxx cxx}{* -*_test}
+lib{component}: ftxui/component/{hxx cxx}{* -*_test -*_fuzzer}
 lib{component}: $component_libs
 
 ./: lib{screen} lib{dom} lib{component}
