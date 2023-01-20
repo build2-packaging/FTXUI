@@ -21,7 +21,8 @@ lib{component}: $component_libs
 
 ./: lib{screen} lib{dom} lib{component}
 
-platform_poptions = # Platform specific poptions.
+platform_poptions_impl = # Platform specific poptions.
+platform_poptions_intf = # Platform specific poptions.
 switch $cxx.target.class
 {
     case 'windows'
@@ -29,12 +30,12 @@ switch $cxx.target.class
         src_inc_dirs += windows/
         if ($cxx.target.system != 'mingw32')
         {
-            platform_poptions += -D_CRT_SECURE_NO_WARNINGS
+            platform_poptions_impl += -D_CRT_SECURE_NO_WARNINGS
         }
     }
     default
     {
-		platform_poptions += -pthread
+		platform_poptions_intf += -pthread
     }
 }
 
@@ -46,7 +47,7 @@ src_pfx_src = [dir_path] $src_root/src/
 
 cxx.poptions += "-I$out_pfx_src" "-I$src_pfx_src" \
                 "-I$out_pfx_inc" "-I$src_pfx_inc" \
-                $platform_poptions
+                $platform_poptions_impl $platform_poptions_intf
 
 # Export options.
 lib{screen}:
@@ -56,13 +57,13 @@ lib{screen}:
 
 lib{dom}:
 {
-  cxx.export.poptions = "-I$out_pfx_inc" "-I$src_pfx_inc"
+  cxx.export.poptions = "-I$out_pfx_inc" "-I$src_pfx_inc" $platform_poptions_intf
   cxx.export.libs = $dom_libs
 }
 
 lib{component}:
 {
-  cxx.export.poptions = "-I$out_pfx_inc" "-I$src_pfx_inc"
+  cxx.export.poptions = "-I$out_pfx_inc" "-I$src_pfx_inc" $platform_poptions_intf
   cxx.export.libs = $component_libs
 }
 
