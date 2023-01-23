@@ -1,4 +1,4 @@
-import impl_libs = libftxui%lib{component}
+import impl_libs = libftxui%lib{ftxui-component}
 
 example_files = cxx{*}
 
