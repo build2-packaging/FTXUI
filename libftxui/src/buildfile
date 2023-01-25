@@ -14,7 +14,7 @@ lib{ftxui-dom}: $pub/{$pub_hdrs}
 lib{ftxui-dom}: ftxui/dom/{hxx cxx}{* -*_test -*_fuzzer}
 lib{ftxui-dom}: $dom_libs
 
-component_libs = lib{ftxui-dom}
+component_libs = lib{ftxui-dom} lib{ftxui-screen} 
 lib{ftxui-component}: $pub/{$pub_hdrs}
 lib{ftxui-component}: ftxui/component/{hxx cxx}{* -*_test -*_fuzzer}
 lib{ftxui-component}: $component_libs
