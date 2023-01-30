@@ -14,7 +14,7 @@ lib{ftxui-dom}: $pub/{$pub_hdrs}
 lib{ftxui-dom}: ftxui/dom/{hxx cxx}{* -*_test -*_fuzzer}
 lib{ftxui-dom}: $dom_libs
 
-component_libs = lib{ftxui-dom} lib{ftxui-screen} 
+component_libs = lib{ftxui-dom} lib{ftxui-screen}
 lib{ftxui-component}: $pub/{$pub_hdrs}
 lib{ftxui-component}: ftxui/component/{hxx cxx}{* -*_test -*_fuzzer}
 lib{ftxui-component}: $component_libs
@@ -32,6 +32,17 @@ switch $cxx.target.class
         {
             platform_poptions += -D_CRT_SECURE_NO_WARNINGS
         }
+
+        if ($cxx.id == 'msvc')
+        {
+            platform_poptions += /utf-8
+        }
+
+        if ($config.libftxui.use_ms_terminal_fallback)
+        {
+            platform_poptions += -DFTXUI_MICROSOFT_TERMINAL_FALLBACK
+        }
+
         platform_poptions += -DUNICODE -D_UNICODE
     }
     default

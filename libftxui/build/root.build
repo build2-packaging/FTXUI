@@ -11,3 +11,12 @@ hxx{*}: cxx.importable = true
 
 # The test target for cross-testing (running tests under Wine, etc).
 test.target = $cxx.target
+
+config [bool] config.libftxui.use_ms_terminal_fallback ?= true
+
+# This library officially only support static builds,
+# but we will prevent them only on Windows.
+if($cxx.target.class == 'windows')
+{
+    bin.lib = static
+}
