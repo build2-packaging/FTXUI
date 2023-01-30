@@ -20,9 +20,15 @@ jobs:
           - name: Ubuntu gcc Debug
             os: ubuntu-latest
             config_file: gcc.debug.build
+          - name: Ubuntu clang Debug
+            os: ubuntu-latest
+            config_file: clang.debug.build
           - name: Ubuntu gcc Release
             os: ubuntu-latest
             config_file: gcc.release.build
+          - name: Ubuntu clang Release
+            os: ubuntu-latest
+            config_file: clang.release.build
 
     steps:
       - uses: actions/checkout@v3
@@ -75,10 +81,18 @@ jobs:
             os: windows-latest
             config_file: msvc.debug.build
             compiler_type: msvc
+          - name: Windows clang Debug
+            os: windows-latest
+            config_file: clang.debug.build
+            compiler_type: clang
           - name: Windows msvc Release
             os: windows-latest
             config_file: msvc.release.build
             compiler_type: msvc
+          - name: Windows clang Release
+            os: windows-latest
+            config_file: clang.release.build
+            compiler_type: clang
     steps:
     - uses: actions/checkout@v3
       with:
