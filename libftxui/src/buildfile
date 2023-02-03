@@ -27,7 +27,6 @@ switch $cxx.target.class
 {
     case 'windows'
     {
-        src_inc_dirs += windows/
         if ($cxx.target.system != 'mingw32')
         {
             platform_poptions += -D_CRT_SECURE_NO_WARNINGS
@@ -85,15 +84,11 @@ lib{ftxui-component}:
 # for details on the version.* variable values.
 if $version.pre_release
 {
-  lib{ftxui-screen}: bin.lib.version = "-$version.project_id"
-  lib{ftxui-dom}: bin.lib.version = "-$version.project_id"
-  lib{ftxui-component}: bin.lib.version = "-$version.project_id"
+  lib{ftxui-screen ftxui-dom ftxui-component}: bin.lib.version = "-$version.project_id"
 }
 else
 {
-  lib{ftxui-screen}: bin.lib.version = "-$version.major.$version.minor"
-  lib{ftxui-dom}: bin.lib.version = "-$version.major.$version.minor"
-  lib{ftxui-component}: bin.lib.version = "-$version.major.$version.minor"
+  lib{ftxui-screen ftxui-dom ftxui-component}: bin.lib.version = "-$version.major.$version.minor"
 }
 
 # Don't install private headers.

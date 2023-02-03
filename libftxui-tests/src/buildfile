@@ -1,10 +1,16 @@
 import impl_libs = gtest%lib{gtest}
+import impl_libs += gtest%liba{gtest_main}
 import impl_libs += libftxui%lib{ftxui-screen}
 import impl_libs += libftxui%lib{ftxui-dom}
 import impl_libs += libftxui%lib{ftxui-component}
 
-lib{ftxui-tests}: {hxx cxx}{*_test}
-lib{ftxui-tests}: $impl_libs
+exe{ftxui-tests}: {hxx cxx}{**_test -**benchmark_test}
+exe{ftxui-tests}: $impl_libs
+
+out_pfx_src = [dir_path] $out_root/src/
+src_pfx_src = [dir_path] $src_root/src/
+
+cxx.poptions += "-I$out_pfx_src" "-I$src_pfx_src"
 
 # Don't install private headers.
 {hxx ixx}{*}: install = false
