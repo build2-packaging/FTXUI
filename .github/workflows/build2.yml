@@ -36,6 +36,8 @@ jobs:
         run: bdep init -C @cc cc config.config.load=build-config/${{matrix.config.config_file}}
       - name: Build
         run: b -V
+      - name: Test
+        run: bdep test -V @cc
 
   # Job for building on MacOS
   MacOS:
@@ -62,6 +64,8 @@ jobs:
       run: bdep init -C @cc cc config.config.load=build-config/${{matrix.config.config_file}}
     - name: Build
       run: b -V
+    - name: Test
+      run: bdep test -V @cc
 
   # Job for building on Windows
   Windows:
@@ -90,3 +94,5 @@ jobs:
       run: bdep init -C ../FTXUI-cc @cc cc config.config.load=build-config/${{matrix.config.config_file}}
     - name: Build
       run: b -V
+    - name: Test
+      run: bdep test -V @cc
