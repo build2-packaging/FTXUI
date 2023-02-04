@@ -32,11 +32,6 @@ switch $cxx.target.class
             platform_poptions += -D_CRT_SECURE_NO_WARNINGS
         }
 
-        if ($cxx.id == 'msvc')
-        {
-            platform_poptions += /utf-8
-        }
-
         if ($config.libftxui.use_ms_terminal_fallback)
         {
             platform_poptions += -DFTXUI_MICROSOFT_TERMINAL_FALLBACK
