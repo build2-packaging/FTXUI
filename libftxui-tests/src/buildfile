@@ -4,7 +4,7 @@ import impl_libs += libftxui%lib{ftxui-screen}
 import impl_libs += libftxui%lib{ftxui-dom}
 import impl_libs += libftxui%lib{ftxui-component}
 
-is_not_windows = ($cxx.target.class == 'windows')
+is_not_windows = ($cxx.target.class != 'windows')
 
 exe{ftxui-tests}: {hxx cxx}{**_test -**benchmark_test -**gauge_test} hxx{**}
 exe{ftxui-tests}: $impl_libs
