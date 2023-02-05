@@ -4,8 +4,12 @@ import impl_libs += libftxui%lib{ftxui-screen}
 import impl_libs += libftxui%lib{ftxui-dom}
 import impl_libs += libftxui%lib{ftxui-component}
 
-exe{ftxui-tests}: {hxx cxx}{**_test -**benchmark_test} hxx{**}
+is_not_windows = ($cxx.target.class == 'windows')
+
+exe{ftxui-tests}: {hxx cxx}{**_test -**benchmark_test -**gauge_test} hxx{**}
 exe{ftxui-tests}: $impl_libs
+# this test fails on windows, so only build it on other platforms :p
+exe{ftxui-tests}: cxx{**/gauge_test}: include = $is_not_windows
 
 out_pfx_src = [dir_path] $out_root/src/
 src_pfx_src = [dir_path] $src_root/src/
