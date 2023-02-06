@@ -1,0 +1,6 @@
+: 1
+name: libftxui-tests
+version: 3.0.0+1
+project: FTXUI
+summary: Tests for the FTXUI library.
+license: MIT
