@@ -35,6 +35,10 @@ component/tab_horizontal
 component/tab_vertical
 component/toggle
 component/with_restored_io
+component/custom_loop
+component/focus_cursor
+component/modal_dialog_custom
+component/slider_direction
 dom/border
 dom/border_style
 dom/canvas
@@ -66,3 +70,6 @@ dom/table
 dom/vbox_hbox
 dom/vflow
 dom/window
+dom/style_strikethrough
+dom/style_underlined_double
+
