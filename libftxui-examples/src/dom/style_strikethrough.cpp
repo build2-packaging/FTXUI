@@ -1,0 +1,1 @@
+../../../upstream/examples/dom/style_strikethrough.cpp

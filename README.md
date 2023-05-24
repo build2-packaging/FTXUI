@@ -9,7 +9,7 @@ The packaging code is licensed under the MIT License, the upstream artifacts are
 You can simply add this package as dependency to your project by specifying it in your `manifest`:
 
 ```
-depends: libftxui ^3.0.0
+depends: libftxui ^4.0.0
 ```
 
 Then just pick the targets that you need:
