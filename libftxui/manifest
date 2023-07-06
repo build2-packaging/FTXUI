@@ -1,6 +1,6 @@
 : 1
 name: libftxui
-version: 3.0.0+1
+version: 3.0.0+2
 project: FTXUI
 summary: Functional Terminal (X) User interface - A simple C++ library for terminal based user interfaces!
 license: MIT
@@ -11,7 +11,9 @@ src-url: https://github.com/ArthurSonzogni/FTXUI
 doc-url: https://arthursonzogni.github.io/FTXUI/
 package-url: https://github.com/build2-packaging/FTXUI
 package-email: packaging@build2.org ; Mailing list.
+
 builds: default
+build-exclude: linux_*-clang_15*_libc++** ; Hangs the compiler.
 
 depends: * build2 >= 0.15.0
 depends: * bpkg >= 0.15.0
