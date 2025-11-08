@@ -1,6 +1,6 @@
 : 1
 name: libftxui-tests
-version: 4.0.0
+version: 4.1.1-a.0.z
 project: FTXUI
 summary: Tests for the FTXUI library.
 license: MIT
