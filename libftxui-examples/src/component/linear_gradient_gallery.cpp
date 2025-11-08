@@ -1,0 +1,1 @@
+../../../upstream/examples/component/linear_gradient_gallery.cpp
