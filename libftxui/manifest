@@ -1,6 +1,6 @@
 : 1
 name: libftxui
-version: 4.1.1-a.0.z
+version: 4.1.1
 project: FTXUI
 summary: Functional Terminal (X) User interface - A simple C++ library for terminal based user interfaces!
 license: MIT
