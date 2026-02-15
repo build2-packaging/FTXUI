@@ -12,6 +12,7 @@ doc-url: https://arthursonzogni.github.io/FTXUI/
 package-url: https://github.com/build2-packaging/FTXUI
 package-email: packaging@build2.org ; Mailing list.
 builds: default
+*-build-config: config.test.timeout=30 ; Don't block CI on deadlocks
 
 depends: * build2 >= 0.15.0
 depends: * bpkg >= 0.15.0
