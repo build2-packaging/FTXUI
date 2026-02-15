@@ -1,6 +1,6 @@
 : 1
 name: libftxui-examples
-version: 4.1.1
+version: 6.1.9-a.0.z
 project: FTXUI
 summary: Examples for the FTXUI library.
 license: MIT
