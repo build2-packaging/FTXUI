@@ -1,1 +1,0 @@
-../../../upstream/examples/component/slider_direction.cpp

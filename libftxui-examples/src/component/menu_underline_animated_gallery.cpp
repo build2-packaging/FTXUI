@@ -1,1 +1,0 @@
-../../../upstream/examples/component/menu_underline_animated_gallery.cpp

@@ -1,1 +1,0 @@
-../../../upstream/examples/component/resizable_split.cpp

@@ -1,1 +1,0 @@
-../../../upstream/examples/component/checkbox_in_frame.cpp

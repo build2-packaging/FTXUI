@@ -1,1 +1,0 @@
-../../../upstream/examples/dom/color_truecolor_HSV.cpp

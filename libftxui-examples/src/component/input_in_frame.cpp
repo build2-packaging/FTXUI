@@ -1,1 +1,0 @@
-../../../upstream/examples/component/input_in_frame.cpp

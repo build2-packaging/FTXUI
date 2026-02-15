@@ -1,1 +1,0 @@
-../../../upstream/examples/dom/style_blink.cpp

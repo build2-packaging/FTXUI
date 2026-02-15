@@ -1,1 +1,18 @@
-./: {*/}
+import comp_libs = libftxui%lib{ftxui-component}
+import dom_libs  = libftxui%lib{ftxui-dom}
+
+for example : component/cxx{*}
+{
+    n = component-$name($example)
+    ./: exe{$n}
+    exe{$n}: $example
+    exe{$n}: $comp_libs
+}
+
+for example : dom/cxx{*}
+{
+    n = dom-$name($example)
+    ./: exe{$n}
+    exe{$n}: $example
+    exe{$n}: $comp_libs
+}

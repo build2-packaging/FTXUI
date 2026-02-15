@@ -1,8 +1,6 @@
-# ignore all files without extension (executables on *nix)
-component/*
-dom/*
-!/**/
-!*.*
+# ignore all example executables
+component-*
+dom-*
 
 # Compiler/linker output.
 #

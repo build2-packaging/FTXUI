@@ -1,1 +1,0 @@
-../../../upstream/examples/dom/color_info_sorted_2d.ipp
