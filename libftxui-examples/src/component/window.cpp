@@ -1,0 +1,1 @@
+../../../upstream/examples/component/window.cpp
